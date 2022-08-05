@@ -62,14 +62,13 @@ function onTimeChange() {
    const intervalId = setInterval(() => {
         const timeNow = new Date()
         const timeDelta = convertMs(selectedTime - timeNow)
-        if (selectedTime - timeNow >= 0) {
+       if (selectedTime - timeNow < 1000) {
+           clearInterval(intervalId)
+       }
             refs.daysText.textContent = addLeadingZero(timeDelta.days)
             refs.hoursText.textContent = addLeadingZero(timeDelta.hours)
             refs.minText.textContent = addLeadingZero(timeDelta.minutes)
             refs.secText.textContent = addLeadingZero(timeDelta.seconds)
-        } else {
-            clearInterval(intervalId)
-        }
     }, 1000)
 }
 
