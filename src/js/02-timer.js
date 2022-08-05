@@ -59,10 +59,10 @@ function addLeadingZero(value) {
 }
 
 function onTimeChange() {
-    intervalId = setInterval(() => {
+   const intervalId = setInterval(() => {
         const timeNow = new Date()
         const timeDelta = convertMs(selectedTime - timeNow)
-        if (timeDelta.seconds >= 0) {
+        if (selectedTime - timeNow >= 0) {
             refs.daysText.textContent = addLeadingZero(timeDelta.days)
             refs.hoursText.textContent = addLeadingZero(timeDelta.hours)
             refs.minText.textContent = addLeadingZero(timeDelta.minutes)
